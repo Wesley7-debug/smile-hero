@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------- Local Font ---------- */
+@font-face {
+  font-family: "BBH Sans Hegarty";
+  src: url("/fonts/BBHSansHegarty-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
+/* ---------- Theme Tokens ---------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #0f0f0f;
+  --color-fg: #0b0d10;
+  --color-muted: #d6ccff;
+
+  /* SMILE – 5 Core Accent Colors */
+  --color-yellow: #ffd84d;
+  --color-blue: #5bc0eb;
+  --color-purple: #5b21b6;
+  --color-pink: #ec4899;
+  --color-mint: #6ee7b7;
+
+  /* Typography */
+  --font-heading: var(--font-inter);
+  --font-body: var(--font-inter);
+  --font-accent: "BBH Sans Hegarty", system-ui, sans-serif;
+  --font-accent2: "DM sans";
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ---------- Base Styles ---------- */
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-yellow);
+  color: #000;
+}
+
+.anim-text .word {
+  display: inline-block;
+  position: relative;
+  margin-right: 0.2rem;
+  margin-bottom: 0.2rem;
+  border-radius: 1rem;
+  padding: 0.1rem 0.2rem;
+  will-change: background-color, opacity;
+  opacity: 0;
+}
+
+.word {
+  padding: 0.5em;
+}
+
+.anim-text .word span {
+  position: relative;
+}
+
+.anim-text .word span.keyword {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.anim-text .word.keyword-wrapper {
+  margin: 0 0.4rem 0.2rem 0.2rem;
+}
+.anim-text .word span.word.keyword {
 }
